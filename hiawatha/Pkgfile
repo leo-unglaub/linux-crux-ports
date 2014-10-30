@@ -1,0 +1,66 @@
+# Description: Hiawatha is a small, secure, fast Webserver written by Hugo Leisink
+# URL: https://www.hiawatha-webserver.org
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Developer: Hugo Leisink, hugo at hiawatha-webserver dot org
+# Depends on: cmake polarssl
+
+name=hiawatha
+version=9.8
+release=1
+source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz)
+
+build() {
+
+	# the Hiawatha archive sadly contains a subfolder
+	cd $name-$version
+
+
+	# create a seperate diretory for the build
+	mkdir build
+	cd build
+
+
+	# start configurating and building the thing
+	cmake .. \
+		-DENABLE_CACHE=on \
+		-DENABLE_DEBUG=off \
+		-DENABLE_MONITOR=off \
+		-DENABLE_RPROXY=on \
+		-DENABLE_SSL=on \
+		-DENABLE_TOMAHAWK=off \
+		-DENABLE_TOOLKIT=on \
+		-DENABLE_XSLT=on \
+		-DUSE_SYSTEM_POLARSSL=off \
+		-DCMAKE_INSTALL_PREFIX="" \
+		-DCMAKE_INSTALL_BINDIR=/usr/bin \
+		-DCMAKE_INSTALL_SBINDIR=/usr/sbin \
+		-DCMAKE_INSTALL_SYSCONFDIR=/etc \
+		-DCMAKE_INSTALL_LIBDIR=/usr/lib \
+		-DCMAKE_INSTALL_MANDIR=/usr/man
+
+	make
+	make install DESTDIR=$PKG
+
+
+
+	#
+	# Lets tweak the default config a little bit and remove some
+	# thinks we don't need
+	#
+
+	# create a nice folder structure for vhosts and move the default
+	# index.html in there where it belongs
+	mkdir -p $PKG/var/www/vhosts/000-default/{htdocs,logs,tmp}
+	mv $PKG/var/www/hiawatha/index.html $PKG/var/www/vhosts/000-default/htdocs/
+	rm -r $PKG/var/www/hiawatha
+
+
+	# Now lets clean up the config directory. First of all we store all
+	# XSLT files in there own folder
+	mkdir $PKG/etc/hiawatha/xslt-templates
+	mv $PKG/etc/hiawatha/*.xslt $PKG/etc/hiawatha/xslt-templates
+
+
+	# Configs and vhosts should have there own directories to
+	mkdir $PKG/etc/hiawatha/{conf.d,vhosts}
+}
