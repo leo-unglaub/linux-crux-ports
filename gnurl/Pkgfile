@@ -1,0 +1,60 @@
+# Description: gnurl is curl, the GNUNET guys just fucked up
+# URL: https://gnunet.org/gnurl
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: gnutls
+
+name=gnurl
+version=7.37.0
+release=1
+source=(https://gnunet.org/sites/default/files/gnurl-$version.tar.gz)
+
+build ()
+{
+	# go into the source directory
+	#cd gnurl-$version
+	cd gnurl--
+
+
+	# configure the entire thing
+	./configure \
+		--prefix=/usr \
+		--includedir=/usr/include/gurl \
+		--mandir=/usr/man \
+		--enable-threaded-resolver \
+		--enable-ipv6 \
+		--with-gnutls \
+		--without-libssh2 \
+		--without-libmetalink \
+		--without-winidn \
+		--without-librtmp \
+		--without-nghttp2 \
+		--without-nss \
+		--without-cyassl \
+		--without-polarssl \
+		--without-ssl \
+		--without-winssl \
+		--without-darwinssl \
+		--disable-sspi \
+		--disable-ntlm-wb \
+		--disable-ldap \
+		--disable-rtsp \
+		--disable-dict \
+		--disable-telnet \
+		--disable-tftp \
+		--disable-pop3 \
+		--disable-imap \
+		--disable-smtp \
+		--disable-gopher \
+		--disable-file \
+		--disable-ftp \
+
+
+	# build and install it
+	make
+	make DESTDIR=$PKG install
+
+
+	# now we have to cleanup the gnurl mess and remove some
+	# conflicts with the real curl package
+	rm -r $PKG/usr/{man,share}
+}

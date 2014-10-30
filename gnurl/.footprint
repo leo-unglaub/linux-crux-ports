@@ -1,0 +1,24 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gnurl
+-rwxr-xr-x	root/root	usr/bin/gnurl-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gurl/
+drwxr-xr-x	root/root	usr/include/gurl/curl/
+-rw-r--r--	root/root	usr/include/gurl/curl/curl.h
+-rw-r--r--	root/root	usr/include/gurl/curl/curlbuild.h
+-rw-r--r--	root/root	usr/include/gurl/curl/curlrules.h
+-rw-r--r--	root/root	usr/include/gurl/curl/curlver.h
+-rw-r--r--	root/root	usr/include/gurl/curl/easy.h
+-rw-r--r--	root/root	usr/include/gurl/curl/mprintf.h
+-rw-r--r--	root/root	usr/include/gurl/curl/multi.h
+-rw-r--r--	root/root	usr/include/gurl/curl/stdcheaders.h
+-rw-r--r--	root/root	usr/include/gurl/curl/typecheck-gcc.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgnurl.a
+-rwxr-xr-x	root/root	usr/lib/libgnurl.la
+lrwxrwxrwx	root/root	usr/lib/libgnurl.so -> libgnurl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnurl.so.0 -> libgnurl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgnurl.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgnurl.pc
