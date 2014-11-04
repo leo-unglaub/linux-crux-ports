@@ -1,0 +1,38 @@
+# Description: The Linux kernel sources
+# URL: https://www.kernel.org
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on:
+
+name=linux-kernel
+version=3.17.2
+release=1
+source=(https://www.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz)
+
+
+# Developers Note
+#
+# This package does not build anything. It
+# just makes the download of the latest Linux Kernel
+# much easier. If you install this package on multiple
+# servers you don't have to manually download and 
+# extract the entire kernel.
+#
+# This package also exports the current kernel config
+# into the kernel directory. This is the reason you
+# should NOT use a binary version of this package.
+#
+# After installing the package you have to update
+# your kernel config and then compile it
+# the way you want.
+
+build ()
+{
+	# create a folder structure
+	mkdir -p $PKG/usr/src/linux
+
+	# copy all files into the package
+	cp -r linux-$version $PKG/usr/src/linux
+
+	# get the current kernel config
+	zcat /proc/config.gz > $PKG/usr/src/linux/linux-$version/.config
+}
