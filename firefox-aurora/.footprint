@@ -9,6 +9,8 @@ drwxr-xr-x	root/root	usr/include/firefox/
 -rw-r--r--	root/root	usr/include/firefox/AbstractMediaDecoder.h
 -rw-r--r--	root/root	usr/include/firefox/AccEvent.h
 -rw-r--r--	root/root	usr/include/firefox/ActiveLayerTracker.h
+-rw-r--r--	root/root	usr/include/firefox/AndroidNativeWindow.h
+-rw-r--r--	root/root	usr/include/firefox/AndroidSurfaceTexture.h
 -rw-r--r--	root/root	usr/include/firefox/AnimationCommon.h
 -rw-r--r--	root/root	usr/include/firefox/AsyncEventRunner.h
 -rw-r--r--	root/root	usr/include/firefox/AudioBufferUtils.h
@@ -70,6 +72,7 @@ drwxr-xr-x	root/root	usr/include/firefox/
 -rw-r--r--	root/root	usr/include/firefox/DisplayItemClip.h
 -rw-r--r--	root/root	usr/include/firefox/DisplayListClipState.h
 -rw-r--r--	root/root	usr/include/firefox/DrawMode.h
+-rw-r--r--	root/root	usr/include/firefox/EGLUtils.h
 -rw-r--r--	root/root	usr/include/firefox/EMEAudioDecoder.h
 -rw-r--r--	root/root	usr/include/firefox/EMEDecoderModule.h
 -rw-r--r--	root/root	usr/include/firefox/EMEH264Decoder.h
@@ -98,11 +101,11 @@ drwxr-xr-x	root/root	usr/include/firefox/
 -rw-r--r--	root/root	usr/include/firefox/GLContextSymbols.h
 -rw-r--r--	root/root	usr/include/firefox/GLContextTypes.h
 -rw-r--r--	root/root	usr/include/firefox/GLDefs.h
+-rw-r--r--	root/root	usr/include/firefox/GLImages.h
 -rw-r--r--	root/root	usr/include/firefox/GLLibraryEGL.h
 -rw-r--r--	root/root	usr/include/firefox/GLLibraryLoader.h
 -rw-r--r--	root/root	usr/include/firefox/GLReadTexImageHelper.h
 -rw-r--r--	root/root	usr/include/firefox/GLScreenBuffer.h
--rw-r--r--	root/root	usr/include/firefox/GLSharedHandleHelpers.h
 -rw-r--r--	root/root	usr/include/firefox/GLTextureImage.h
 -rw-r--r--	root/root	usr/include/firefox/GLTypes.h
 -rw-r--r--	root/root	usr/include/firefox/GLUploadHelpers.h
@@ -232,13 +235,13 @@ drwxr-xr-x	root/root	usr/include/firefox/
 -rw-r--r--	root/root	usr/include/firefox/ScrollbarActivity.h
 -rw-r--r--	root/root	usr/include/firefox/ScrollbarStyles.h
 -rw-r--r--	root/root	usr/include/firefox/Selection.h
+-rw-r--r--	root/root	usr/include/firefox/SelfRef.h
 -rw-r--r--	root/root	usr/include/firefox/SerializedLoadContext.h
 -rw-r--r--	root/root	usr/include/firefox/ShadowLayersManager.h
 -rw-r--r--	root/root	usr/include/firefox/SharedBuffer.h
 -rw-r--r--	root/root	usr/include/firefox/SharedSurface.h
 -rw-r--r--	root/root	usr/include/firefox/SharedSurfaceEGL.h
 -rw-r--r--	root/root	usr/include/firefox/SharedSurfaceGL.h
--rw-r--r--	root/root	usr/include/firefox/SharedTextureImage.h
 -rw-r--r--	root/root	usr/include/firefox/SharedThreadPool.h
 -rwxr-xr-x	root/root	usr/include/firefox/SkiaGLGlue.h
 -rw-r--r--	root/root	usr/include/firefox/SpecialSystemDirectory.h
@@ -2159,6 +2162,7 @@ drwxr-xr-x	root/root	usr/include/firefox/mozilla/threads/
 -rw-r--r--	root/root	usr/include/firefox/mozmemory.h
 -rw-r--r--	root/root	usr/include/firefox/mozmemory_wrap.h
 drwxr-xr-x	root/root	usr/include/firefox/mp4_demuxer/
+-rw-r--r--	root/root	usr/include/firefox/mp4_demuxer/Adts.h
 -rw-r--r--	root/root	usr/include/firefox/mp4_demuxer/AnnexB.h
 -rw-r--r--	root/root	usr/include/firefox/mp4_demuxer/BufferStream.h
 -rw-r--r--	root/root	usr/include/firefox/mp4_demuxer/ByteReader.h
@@ -3721,7 +3725,6 @@ drwxr-xr-x	root/root	usr/include/firefox/nestegg/
 -rw-r--r--	root/root	usr/include/firefox/nsSubstringTuple.h
 -rw-r--r--	root/root	usr/include/firefox/nsSupportsArray.h
 -rw-r--r--	root/root	usr/include/firefox/nsSupportsPrimitives.h
--rw-r--r--	root/root	usr/include/firefox/nsSurfaceTexture.h
 -rw-r--r--	root/root	usr/include/firefox/nsTArray-inl.h
 -rw-r--r--	root/root	usr/include/firefox/nsTArray.h
 -rw-r--r--	root/root	usr/include/firefox/nsTArrayForwardDeclare.h
