@@ -14,7 +14,7 @@ source=(https://www.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz)
 # This package does not build anything. It
 # just makes the download of the latest Linux Kernel
 # much easier. If you install this package on multiple
-# servers you don't have to manually download and 
+# servers you don't have to manually download and
 # extract the entire kernel.
 #
 # This package also exports the current kernel config
@@ -28,11 +28,11 @@ source=(https://www.kernel.org/pub/linux/kernel/v3.x/linux-$version.tar.xz)
 build ()
 {
 	# create a folder structure
-	mkdir -p $PKG/usr/src/linux
+	mkdir -p $PKG/usr/src/
 
 	# copy all files into the package
-	cp -r linux-$version $PKG/usr/src/linux
+	cp -r $SRC/linux-$version $PKG/usr/src/
 
 	# get the current kernel config
-	zcat /proc/config.gz > $PKG/usr/src/linux/linux-$version/.config
+	zcat /proc/config.gz > $PKG/usr/src/linux-$version/.config
 }
