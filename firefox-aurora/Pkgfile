@@ -9,7 +9,8 @@ release=1
 source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
 	firefox-install-dir.patch firefox.desktop)
 
-build() {
+build ()
+{
     cd mozilla-beta
 
 patch -p 1 -i $SRC/firefox-install-dir.patch
