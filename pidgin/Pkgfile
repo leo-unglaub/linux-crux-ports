@@ -1,0 +1,65 @@
+# Description: Pidgin is an easy to use and free chat client used by millions.
+# URL: https://pidgin.im/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: gtk
+
+name=pidgin
+version=2.10.10
+release=1
+source=(https://downloads.sourceforge.net/project/$name/Pidgin/$version/$name-$version.tar.bz2)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure Pidgin and remove a lot of crap from the build
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--disable-nls \
+		--disable-consoleui \
+		--disable-screensaver \
+		--disable-sm \
+		--disable-startup-notification \
+		--disable-gtkspell \
+		--disable-gevolution \
+		--disable-cap \
+		--disable-gestures \
+		--disable-schemas-install \
+		--disable-gstreamer \
+		--disable-gstreamer-interfaces \
+		--disable-farstream \
+		--disable-vv \
+		--disable-meanwhile \
+		--disable-avahi \
+		--disable-fortify \
+		--disable-dbus \
+		--disable-nm \
+		--disable-unity \
+		--disable-mono \
+		--disable-perl \
+		--disable-tcl \
+		--disable-tk \
+		--disable-cyrus-sasl \
+		--disable-trayicon-compat \
+		--disable-doxygen \
+		--disable-dot \
+		--disable-devhelp \
+		--with-system-ssl-certs=/etc/ssl/certs \
+		--with-nspr-includes=/usr/include/nspr \
+		--with-nss-includes=/usr/include/nss \
+		--with-nspr-libs=/usr/lib \
+		--with-nss-libs=/usr/lib
+
+
+	# make Pidgin and install it
+	make
+	make DESTDIR=$PKG install
+
+
+	# cleanup time :)
+	find $PKG/usr/lib/ -name '*.la' -delete
+}
