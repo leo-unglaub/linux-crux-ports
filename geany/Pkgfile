@@ -1,0 +1,31 @@
+# Description: Geany is a text editor using the GTK2 toolkit
+# URL: http://www.geany.org/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: gtk
+
+name=geany
+version=1.24.1
+release=3
+source=(http://download.geany.org/$name-$version.tar.bz2)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure Geany
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-plugins
+
+
+	# make Geany
+	make
+	make DESTDIR=$PKG install
+
+
+	# get rid of some crap we don't need
+	rm -r $PKG/usr/share/{doc,locale,geany/GPL-2}
+}
