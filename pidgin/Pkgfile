@@ -24,6 +24,7 @@ build ()
 		--with-nspr-libs=/usr/lib \
 		--with-nss-libs=/usr/lib \
 		--enable-cyrus-sasl \
+		--enable-nss=yes \
 		--disable-dependency-tracking \
 		--disable-nls \
 		--disable-consoleui \
@@ -52,7 +53,8 @@ build ()
 		--disable-trayicon-compat \
 		--disable-doxygen \
 		--disable-dot \
-		--disable-devhelp
+		--disable-devhelp \
+		--disable-gnutls
 
 
 	# make Pidgin and install it

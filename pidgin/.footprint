@@ -176,7 +176,6 @@ lrwxrwxrwx	root/root	usr/lib/purple-2/libymsg.so.0 -> libymsg.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/purple-2/newline.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/offlinemsg.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/psychic.so
--rwxr-xr-x	root/root	usr/lib/purple-2/ssl-gnutls.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/ssl-nss.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/ssl.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/statenotify.so
