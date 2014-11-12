@@ -18,6 +18,12 @@ build ()
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
+		--with-system-ssl-certs=/etc/ssl/certs \
+		--with-nspr-includes=/usr/include/nspr \
+		--with-nss-includes=/usr/include/nss \
+		--with-nspr-libs=/usr/lib \
+		--with-nss-libs=/usr/lib \
+		--enable-cyrus-sasl \
 		--disable-dependency-tracking \
 		--disable-nls \
 		--disable-consoleui \
@@ -43,16 +49,10 @@ build ()
 		--disable-perl \
 		--disable-tcl \
 		--disable-tk \
-		--disable-cyrus-sasl \
 		--disable-trayicon-compat \
 		--disable-doxygen \
 		--disable-dot \
-		--disable-devhelp \
-		--with-system-ssl-certs=/etc/ssl/certs \
-		--with-nspr-includes=/usr/include/nspr \
-		--with-nss-includes=/usr/include/nss \
-		--with-nspr-libs=/usr/lib \
-		--with-nss-libs=/usr/lib
+		--disable-devhelp
 
 
 	# make Pidgin and install it
