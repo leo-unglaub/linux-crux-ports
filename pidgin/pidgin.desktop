@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=Application;Network;
+Name=Pidgin
+Comment=Pidgin is an easy to use and free chat client used by millions
+Exec=pidgin
+Icon=pidgin
+Path=
+Terminal=false
+StartupNotify=false
