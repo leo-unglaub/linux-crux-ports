@@ -834,6 +834,7 @@ drwxr-xr-x	root/root	usr/include/firefox/mozilla/dom/
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CDATASectionBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CFStateChangeEvent.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CFStateChangeEventBinding.h
+-rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CRMFObjectBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CSPReportBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CSS.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/CSS2PropertiesBinding.h
@@ -1646,6 +1647,8 @@ drwxr-xr-x	root/root	usr/include/firefox/mozilla/dom/
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SharedWorkerGlobalScopeBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SimpleGestureEvent.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SimpleGestureEventBinding.h
+-rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SmartCardEvent.h
+-rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SmartCardEventBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SmsMessage.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SocketCommonBinding.h
 -rw-r--r--	root/root	usr/include/firefox/mozilla/dom/SourceBuffer.h
@@ -2680,8 +2683,8 @@ drwxr-xr-x	root/root	usr/include/firefox/nestegg/
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMCompositionEvent.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMConstructor.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMCounter.h
--rw-r--r--	root/root	usr/include/firefox/nsIDOMCrypto.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMCryptoDialogs.h
+-rw-r--r--	root/root	usr/include/firefox/nsIDOMCryptoLegacy.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMCustomEvent.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMDOMCursor.h
 -rw-r--r--	root/root	usr/include/firefox/nsIDOMDOMException.h
@@ -2961,6 +2964,7 @@ drwxr-xr-x	root/root	usr/include/firefox/nestegg/
 -rw-r--r--	root/root	usr/include/firefox/nsIFormFillController.h
 -rw-r--r--	root/root	usr/include/firefox/nsIFormHistory.h
 -rw-r--r--	root/root	usr/include/firefox/nsIFormProcessor.h
+-rw-r--r--	root/root	usr/include/firefox/nsIFormSigningDialog.h
 -rw-r--r--	root/root	usr/include/firefox/nsIFormSubmitObserver.h
 -rw-r--r--	root/root	usr/include/firefox/nsIFormatConverter.h
 -rw-r--r--	root/root	usr/include/firefox/nsIFragmentContentSink.h
@@ -4254,6 +4258,7 @@ drwxr-xr-x	root/root	usr/lib/firefox/browser/icons/
 drwxr-xr-x	root/root	usr/lib/firefox/browser/searchplugins/
 -rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/amazondotcom.xml
 -rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/bing.xml
+-rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/ddg.xml
 -rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/eBay.xml
 -rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/google.xml
 -rw-r--r--	root/root	usr/lib/firefox/browser/searchplugins/twitter.xml
@@ -4575,8 +4580,8 @@ drwxr-xr-x	root/root	usr/share/idl/firefox/
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCompositionEvent.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMConstructor.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCounter.idl
--rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCrypto.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCryptoDialogs.idl
+-rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCryptoLegacy.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMCustomEvent.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMDOMCursor.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIDOMDOMException.idl
@@ -4843,6 +4848,7 @@ drwxr-xr-x	root/root	usr/share/idl/firefox/
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFormAutofillContentService.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFormFillController.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFormHistory.idl
+-rw-r--r--	root/root	usr/share/idl/firefox/nsIFormSigningDialog.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFormSubmitObserver.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFormatConverter.idl
 -rw-r--r--	root/root	usr/share/idl/firefox/nsIFrameLoader.idl
