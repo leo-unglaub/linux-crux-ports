@@ -54,7 +54,8 @@ build ()
 		--disable-doxygen \
 		--disable-dot \
 		--disable-devhelp \
-		--disable-gnutls
+		--disable-gnutls \
+		--disable-idn
 
 
 	# make Pidgin and install it
