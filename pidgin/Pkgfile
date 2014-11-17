@@ -1,7 +1,7 @@
 # Description: Pidgin is an easy to use and free chat client used by millions.
 # URL: https://pidgin.im/
 # Maintainer: Leo Unglaub, leo at leo-unglaub dot net
-# Depends on: gtk
+# Depends on: gtk cyrus-sasl
 
 name=pidgin
 version=2.10.10
