@@ -9,8 +9,8 @@ version=9.8
 release=1
 source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz)
 
-build() {
-
+build ()
+{
 	# the Hiawatha archive sadly contains a subfolder
 	cd $SRC/$name-$version
 
