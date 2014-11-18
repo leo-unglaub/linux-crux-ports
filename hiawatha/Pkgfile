@@ -12,7 +12,7 @@ source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz)
 build() {
 
 	# the Hiawatha archive sadly contains a subfolder
-	cd $name-$version
+	cd $SRC/$name-$version
 
 
 	# create a seperate diretory for the build
