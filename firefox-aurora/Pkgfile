@@ -4,7 +4,7 @@
 # Depends on: nss, libidl, gtk, python, alsa-lib, yasm, mesa3d
 
 name=firefox-aurora
-version=34.0b9
+version=34.0b10
 release=1
 source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
 	firefox-install-dir.patch firefox.desktop)
