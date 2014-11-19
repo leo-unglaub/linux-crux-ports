@@ -1,0 +1,57 @@
+# Description: Plugins for the Geany editor
+# URL: http://www.geany.org/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: gtk geany
+
+name=geany-plugins
+version=1.24
+release=1
+source=(http://plugins.geany.org/$name/$name-$version.tar.bz2)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure Geany
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-addons \
+		--enable-codenav \
+		--enable-debugger \
+		--enable-geanydoc \
+		--enable-geanyinsertnum \
+		--enable-geanylipsum \
+		--enable-geanymacro \
+		--enable-geanyprj \
+		--enable-geanyvc \
+		--enable-largefile \
+		--enable-gproject \
+		--enable-pretty_printer \
+		--enable-shiftcolumn \
+		--enable-treebrowser \
+		--enable-xmlsnippets \
+		--disable-geanysendmail \
+		--disable-nls \
+		--disable-geanyextrasel \
+		--disable-geanylatex \
+		--disable-tableconvert \
+		--disable-spellcheck \
+		--disable-devhelp \
+		--disable-geanylua \
+		--disable-gtkspell \
+		--disable-geanypg \
+		--disable-updatechecker \
+		--disable-webhelper
+
+
+	# make Geany
+	make
+	make DESTDIR=$PKG install
+
+
+	# get rid of some crap we don't need
+	rm -r $PKG/usr/share/{doc,locale}
+}
