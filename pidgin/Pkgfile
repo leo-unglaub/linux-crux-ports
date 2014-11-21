@@ -6,7 +6,7 @@
 name=pidgin
 version=2.10.10
 release=1
-source=(https://downloads.sourceforge.net/project/$name/Pidgin/$version/$name-$version.tar.bz2)
+source=(https://downloads.sourceforge.net/project/$name/Pidgin/$version/$name-$version.tar.bz2 pidgin.desktop)
 
 build ()
 {
@@ -61,6 +61,11 @@ build ()
 	# make Pidgin and install it
 	make
 	make DESTDIR=$PKG install
+
+
+	# deploy the .desktop file
+	mkdir -p $PKG/usr/share/applications
+	cp $SRC/pidgin.desktop $PKG/usr/share/applications/
 
 
 	# cleanup time :)
