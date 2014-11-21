@@ -1,0 +1,29 @@
+# Description: A fast streaming JSON parsing library in C
+# URL: https://github.com/lloyd/yajl
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: cmake
+
+name=yajl
+version=2.1.0
+release=1
+source=(https://github.com/lloyd/$name/archive/$version.tar.gz)
+
+build ()
+{
+	# create a build directory
+	mkdir -p $SRC/$name-$version/build
+	cd $SRC/$name-$version/build
+
+
+	# make my copy of yajl
+	cmake ..
+	make
+
+
+	# create a folder structure
+	mkdir -p $PKG/usr
+
+
+	# copy everything to the $PKG directory
+	cp -r $name-$version/* $PKG/usr/
+}
