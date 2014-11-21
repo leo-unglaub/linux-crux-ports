@@ -1,0 +1,7 @@
+# dont track the source packages
+*.bz2
+*.gz
+
+
+# don't track CRUX packages as well
+*#*
