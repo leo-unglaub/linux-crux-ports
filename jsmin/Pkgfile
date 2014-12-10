@@ -1,0 +1,26 @@
+# Description: JSMin, The JavaScript Minifier
+# URL: https://github.com/douglascrockford/JSMin
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+
+name=jsmin
+version=0.1
+release=1
+source=(https://github.com/douglascrockford/JSMin/archive/master.tar.gz)
+
+#
+# Note: This software does not have "releases". It just exists.
+# If he commits a new change to the repository we just have to
+# raise the release version to trigger a rebuild.
+#
+
+build ()
+{
+	# go into the source folder
+	cd $SRC/JSMin-master
+
+	# compile it
+	gcc -o jsmin $CFLAGS jsmin.c
+		
+	# create the needed folder structure
+	install -D jsmin $PKG/usr/bin/jsmin
+}
