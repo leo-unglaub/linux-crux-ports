@@ -4,7 +4,7 @@
 # Depends on: gtk cyrus-sasl
 
 name=pidgin
-version=2.10.10
+version=2.10.11
 release=1
 source=(https://downloads.sourceforge.net/project/$name/Pidgin/$version/$name-$version.tar.bz2 pidgin.desktop)
 

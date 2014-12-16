@@ -121,9 +121,9 @@ drwxr-xr-x	root/root	usr/include/pidgin/
 -rw-r--r--	root/root	usr/include/pidgin/pidginstock.h
 -rw-r--r--	root/root	usr/include/pidgin/pidgintooltip.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libpurple.so -> libpurple.so.0.10.10
-lrwxrwxrwx	root/root	usr/lib/libpurple.so.0 -> libpurple.so.0.10.10
--rwxr-xr-x	root/root	usr/lib/libpurple.so.0.10.10
+lrwxrwxrwx	root/root	usr/lib/libpurple.so -> libpurple.so.0.10.11
+lrwxrwxrwx	root/root	usr/lib/libpurple.so.0 -> libpurple.so.0.10.11
+-rwxr-xr-x	root/root	usr/lib/libpurple.so.0.10.11
 drwxr-xr-x	root/root	usr/lib/pidgin/
 -rwxr-xr-x	root/root	usr/lib/pidgin/convcolors.so
 -rwxr-xr-x	root/root	usr/lib/pidgin/extplacement.so
@@ -174,6 +174,7 @@ lrwxrwxrwx	root/root	usr/lib/purple-2/libymsg.so.0 -> libymsg.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/purple-2/libzephyr.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/log_reader.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/newline.so
+-rwxr-xr-x	root/root	usr/lib/purple-2/nss-prefs.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/offlinemsg.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/psychic.so
 -rwxr-xr-x	root/root	usr/lib/purple-2/ssl-nss.so
