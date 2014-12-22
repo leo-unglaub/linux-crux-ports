@@ -1,5 +1,5 @@
 # Description: i3 is a tiling window manager, completely written from scratch
-# URL: http://i3wm.org
+# URL: https://i3wm.org
 # Maintainer: Leo Unglaub, leo at leo-unglaub dot net
 # Depends on: xorg-libxcb xorg-xcb-util xorg-xcb-util-keysyms xorg-xcb-util-wm xorg-xcb-util-cursor yajl libev dmenu
 
