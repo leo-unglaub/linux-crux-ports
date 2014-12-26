@@ -64,8 +64,7 @@ build ()
 
 
 	# deploy the .desktop file
-	mkdir -p $PKG/usr/share/applications
-	cp $SRC/pidgin.desktop $PKG/usr/share/applications/
+	install -D -m 644 $SRC/pidgin.desktop $PKG/usr/share/applications/pidgin.desktop
 
 
 	# cleanup time :)
