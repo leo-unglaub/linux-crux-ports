@@ -13,14 +13,14 @@ build ()
 	cd $SRC/$name-$version
 
 
-	# configure Pidgin and remove a lot of crap from the build
+	# configure libotr
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--disable-dependency-tracking
 
 
-	# make Pidgin and install it
+	# make libotr and install it
 	make
 	make DESTDIR=$PKG install
 }
