@@ -16,6 +16,7 @@ build ()
 	# configure Pidgin and remove a lot of crap from the build
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
 		--disable-dependency-tracking
 
 
