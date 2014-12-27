@@ -1,0 +1,41 @@
+# Description: This is a plugin for Pidgin 2.x which implements Off-the-Record Messaging over any IM network Pidgin supports.
+# URL: https://otr.cypherpunks.ca
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: pidgin libotr
+
+name=pidgin-otr
+version=4.0.1
+release=1
+source=(https://otr.cypherpunks.ca/$name-$version.tar.gz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure pidgin-otr
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--disable-nls
+
+
+	# make pidgin-otr and install it
+	make
+	make DESTDIR=$PKG install
+
+
+	# do to some bug --disable-nls is not working so
+	# we have to get rid of all translations ourself
+	rm -r $PKG/usr/share
+
+
+	# we don't need the .la file
+	rm $PKG/usr/lib/pidgin/pidgin-otr.la
+
+	
+	# all other pidgin plugins don't have a "pidgin" prefix
+	mv $PKG/usr/lib/pidgin/pidgin-otr.so $PKG/usr/lib/pidgin/otr.so
+}
