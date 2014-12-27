@@ -1,0 +1,25 @@
+# Description: Off-the-Record (OTR) Messaging allows you to have private conversations over instant messaging.
+# URL: https://otr.cypherpunks.ca/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+
+name=libotr
+version=4.1.0
+release=1
+source=(https://otr.cypherpunks.ca/$name-$version.tar.gz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure Pidgin and remove a lot of crap from the build
+	./configure \
+		--prefix=/usr \
+		--disable-dependency-tracking
+
+
+	# make Pidgin and install it
+	make
+	make DESTDIR=$PKG install
+}
