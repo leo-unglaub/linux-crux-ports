@@ -29,6 +29,8 @@ drwxr-xr-x	root/root	usr/lib/geany/
 -rwxr-xr-x	root/root	usr/lib/geany/geanyprj.so
 -rwxr-xr-x	root/root	usr/lib/geany/geanyvc.la
 -rwxr-xr-x	root/root	usr/lib/geany/geanyvc.so
+-rwxr-xr-x	root/root	usr/lib/geany/geniuspaste.la
+-rwxr-xr-x	root/root	usr/lib/geany/geniuspaste.so
 -rwxr-xr-x	root/root	usr/lib/geany/gproject.la
 -rwxr-xr-x	root/root	usr/lib/geany/gproject.so
 -rwxr-xr-x	root/root	usr/lib/geany/multiterm.la
