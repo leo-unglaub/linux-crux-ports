@@ -7,15 +7,21 @@ name=firefox-aurora
 version=35.0b6
 release=1
 source=(https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$version/source/firefox-$version.source.tar.bz2
-	firefox-install-dir.patch firefox.desktop)
+	firefox-install-dir.patch firefox-aurora.desktop)
+
 
 build ()
 {
-    cd mozilla-beta
+	# go into the source directory
+    cd $SRC/mozilla-beta
 
-patch -p 1 -i $SRC/firefox-install-dir.patch
 
-cat <<- EOF > .mozconfig
+	# patch the install directories
+	patch -p 1 -i $SRC/firefox-install-dir.patch
+
+
+	# create a .mozconfig file
+	cat <<- EOF > .mozconfig
     mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-shared
     mk_add_options MOZ_MAKE_FLAGS="$MAKEFLAGS -s"
     ac_add_options --prefix=/usr
@@ -62,13 +68,22 @@ cat <<- EOF > .mozconfig
     ac_add_options --disable-pulseaudio
 EOF
 
+
+	# make the new firefox-aurora
     make -f client.mk build
     make -f client.mk DESTDIR=$PKG install
 
+
+	# manage our shared libs
     install -d $PKG/etc/ld.so.conf.d
     echo "/usr/lib/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
 
-    mkdir -p $PKG/usr/share/pixmaps
-    ln -s /usr/lib/firefox/browser/chrome/icons/default/default48.png $PKG/usr/share/pixmaps/firefox_default48.png
-    install -D -m 0644 $SRC/firefox.desktop $PKG/usr/share/applications/firefox.desktop
+
+	# deploy the application icon
+    install -d $PKG/usr/share/pixmaps
+    ln -sr $PKG/usr/lib/firefox/browser/icons/mozicon128.png $PKG/usr/share/pixmaps/$name.png
+
+
+    # deploy the .desktop file
+    install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
 }

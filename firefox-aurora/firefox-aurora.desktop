@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Firefox
+Name=Firefox Aurora
 Comment=Browser
 Exec=firefox
-Icon=firefox_default48.png
+Icon=firefox-aurora.png
 Terminal=false
 Type=Application
 Categories=Application;Network;
