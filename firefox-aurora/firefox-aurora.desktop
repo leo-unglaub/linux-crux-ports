@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Firefox Aurora
-Comment=Browser
+Comment=The nightly build of Mozilla Firefox
 Exec=firefox
 Icon=firefox-aurora.png
 Terminal=false
