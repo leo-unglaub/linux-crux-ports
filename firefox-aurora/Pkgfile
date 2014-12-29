@@ -70,20 +70,20 @@ EOF
 
 
 	# make the new firefox-aurora
-    make -f client.mk build
-    make -f client.mk DESTDIR=$PKG install
+	make -f client.mk build
+	make -f client.mk DESTDIR=$PKG install
 
 
 	# manage our shared libs
-    install -d $PKG/etc/ld.so.conf.d
-    echo "/usr/lib/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
+	install -d $PKG/etc/ld.so.conf.d
+	echo "/usr/lib/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
 
 
 	# deploy the application icon
-    install -d $PKG/usr/share/pixmaps
-    ln -sr $PKG/usr/lib/firefox/browser/icons/mozicon128.png $PKG/usr/share/pixmaps/$name.png
+	install -d $PKG/usr/share/pixmaps
+	ln -sr $PKG/usr/lib/firefox/browser/icons/mozicon128.png $PKG/usr/share/pixmaps/$name.png
 
 
-    # deploy the .desktop file
-    install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
+	# deploy the .desktop file
+	install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
 }
