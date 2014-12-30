@@ -36,7 +36,8 @@ build ()
 		-DCMAKE_INSTALL_SBINDIR=/usr/sbin \
 		-DCMAKE_INSTALL_SYSCONFDIR=/etc \
 		-DCMAKE_INSTALL_LIBDIR=/usr/lib \
-		-DCMAKE_INSTALL_MANDIR=/usr/man
+		-DCMAKE_INSTALL_MANDIR=/usr/man \
+		-DWEBROOT_DIR=/var/www/vhosts/000-default/htdocs
 
 	make
 	make install DESTDIR=$PKG
@@ -47,12 +48,7 @@ build ()
 	# Lets tweak the default config a little bit and remove some
 	# thinks we don't need
 	#
-
-	# create a nice folder structure for vhosts and move the default
-	# index.html in there where it belongs
-	mkdir -p $PKG/var/www/vhosts/000-default/{htdocs,logs,tmp}
-	mv $PKG/var/www/hiawatha/index.html $PKG/var/www/vhosts/000-default/htdocs/
-	rm -r $PKG/var/www/hiawatha
+	install -d $PKG/var/www/vhosts/000-default/{htdocs,logs,tmp}
 
 
 	# Now lets clean up the config directory. First of all we store all
