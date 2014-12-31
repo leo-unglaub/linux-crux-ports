@@ -15,7 +15,9 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/polarssl_gen_random_ctr_drbg
 -rwxr-xr-x	root/root	usr/bin/polarssl_gen_random_havege
 -rwxr-xr-x	root/root	usr/bin/polarssl_generic_sum
+-rwxr-xr-x	root/root	usr/bin/polarssl_hello
 -rwxr-xr-x	root/root	usr/bin/polarssl_key_app
+-rwxr-xr-x	root/root	usr/bin/polarssl_md5sum
 -rwxr-xr-x	root/root	usr/bin/polarssl_mpi_demo
 -rwxr-xr-x	root/root	usr/bin/polarssl_o_p_test
 -rwxr-xr-x	root/root	usr/bin/polarssl_pem2der
@@ -30,6 +32,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/polarssl_rsa_sign
 -rwxr-xr-x	root/root	usr/bin/polarssl_rsa_verify
 -rwxr-xr-x	root/root	usr/bin/polarssl_selftest
+-rwxr-xr-x	root/root	usr/bin/polarssl_sha1sum
 -rwxr-xr-x	root/root	usr/bin/polarssl_sha2sum
 -rwxr-xr-x	root/root	usr/bin/polarssl_ssl_cert_test
 -rwxr-xr-x	root/root	usr/bin/polarssl_ssl_client1
