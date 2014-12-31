@@ -40,8 +40,4 @@ build ()
 	do
 		mv $exe "polarssl_$exe";
 	done
-
-
-	# get rid of some things we don't need
-	rm $PKG/usr/bin/polarssl_{hello,md5sum,sha1sum}
 }
