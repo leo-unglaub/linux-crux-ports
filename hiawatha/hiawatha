@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# /etc/rc.d/hiawatha: start/stop the hiawatha webserver
+
+pidFile=/var/run/hiawatha.pid
+executable=/usr/sbin/hiawatha
+
+case $1 in
+start)
+	$executable
+	;;
+stop)
+	if [ -f $pidFile]; then
+		kill $(< $pidFile)
+		rm -f $pidFile
+	else
+		killall -q $executable
+	fi
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file
