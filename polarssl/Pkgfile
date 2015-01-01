@@ -18,9 +18,11 @@ build ()
 	# customize the polarssl build
 	configScript="$SRC/$name-$version/scripts/config.pl -f $SRC/$name-$version/include/polarssl/config.h"
 	$configScript unset POLARSSL_DEBUG_C
-	$configScript unset POLARSSL_REMOVE_ARC4_CIPHERSUITES
+	$configScript unset POLARSSL_CIPHER_NULL_CIPHER
+	$configScript unset POLARSSL_ENABLE_WEAK_CIPHERSUITES
 	$configScript set POLARSSL_THREADING_C
 	$configScript set POLARSSL_THREADING_PTHREAD
+	$configScript set POLARSSL_REMOVE_ARC4_CIPHERSUITES
 
 
 	# it's optional, but i prefer to build in a seperate directory
