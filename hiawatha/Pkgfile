@@ -70,6 +70,9 @@ build ()
 	install -D -m 644 $SRC/000-default.conf $PKG/etc/hiawatha/vhosts.d/000-default.conf
 
 
+	# create the logging directory
+	install -d $PKG/var/log/hiawatha
+
 
 	# Now lets clean up the config directory. First of all we store all
 	# XSLT files in there own folder
