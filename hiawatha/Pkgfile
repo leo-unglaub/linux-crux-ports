@@ -7,7 +7,9 @@
 name=hiawatha
 version=9.10-rc1
 release=2
-source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz)
+source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz
+	hiawatha hiawatha.conf main.conf ban.conf 000-default.conf bindings.conf
+	handler.conf)
 
 build ()
 {
@@ -25,9 +27,9 @@ build ()
 		-DENABLE_CACHE=on \
 		-DENABLE_DEBUG=off \
 		-DENABLE_MONITOR=off \
-		-DENABLE_RPROXY=on \
+		-DENABLE_RPROXY=off \
 		-DENABLE_SSL=on \
-		-DENABLE_TOMAHAWK=off \
+		-DENABLE_TOMAHAWK=on \
 		-DENABLE_TOOLKIT=on \
 		-DENABLE_XSLT=on \
 		-DUSE_SYSTEM_POLARSSL=on \
@@ -44,19 +46,32 @@ build ()
 
 
 
-	#
-	# Lets tweak the default config a little bit and remove some
-	# thinks we don't need
-	#
-	install -d $PKG/var/www/vhosts/000-default/{htdocs,logs,tmp}
+	# deploy the hiawatha rc file
+	install -D -m 755 $SRC/hiawatha $PKG/etc/rc.d/hiawatha
+
+
+	# create the folder structure for the default vhost
+	install -d $PKG/var/www/vhosts/000-default/{logs,tmp}
+
+
+	# create the folder structure for the config
+	install -d $PKG/etc/hiawatha/{xslt-templates,conf.d,vhosts.d}
+
+
+	# deploy the config files
+	install -D -m 644 $SRC/hiawatha.conf $PKG/etc/hiawatha/hiawatha.conf
+	install -D -m 644 $SRC/main.conf $PKG/etc/hiawatha/conf.d/main.conf
+	install -D -m 644 $SRC/ban.conf $PKG/etc/hiawatha/conf.d/ban.conf
+	install -D -m 644 $SRC/bindings.conf $PKG/etc/hiawatha/conf.d/bindings.conf
+	install -D -m 644 $SRC/handler.conf $PKG/etc/hiawatha/conf.d/handler.conf
+
+
+	# deploy the default vhost
+	install -D -m 644 $SRC/000-default.conf $PKG/etc/hiawatha/vhosts.d/000-default.conf
+
 
 
 	# Now lets clean up the config directory. First of all we store all
 	# XSLT files in there own folder
-	mkdir $PKG/etc/hiawatha/xslt-templates
 	mv $PKG/etc/hiawatha/*.xslt $PKG/etc/hiawatha/xslt-templates
-
-
-	# Configs and vhosts should have there own directories to
-	mkdir $PKG/etc/hiawatha/{conf.d,vhosts}
 }

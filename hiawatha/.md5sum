@@ -1,1 +1,8 @@
+062f82e7e804bfac38f3423ec73d8525  000-default.conf
+289b01578cfe57f2eff7b71fbc7a6de7  ban.conf
+0a9dbcc1de2ee565abb0b3deaf0d45e5  bindings.conf
+b0cdc34bdc701296d21662c7ccc985ad  handler.conf
+5ed7b7fdd78b232ef67f19cd83228fb7  hiawatha
 b5e972431031a23a65d12f86e719ad5c  hiawatha-9.10-rc1.tar.gz
+4e317c09b81667fdf5511c6d3dc614ab  hiawatha.conf
+c5d96e55411fd3e6fdf26797315f8250  main.conf
