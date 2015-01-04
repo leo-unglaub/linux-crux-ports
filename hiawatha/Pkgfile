@@ -5,8 +5,8 @@
 # Depends on: cmake polarssl
 
 name=hiawatha
-version=9.10-rc1
-release=2
+version=9.10
+release=1
 source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz
 	hiawatha hiawatha.conf main.conf ban.conf 000-default.conf bindings.conf
 	handler.conf)
