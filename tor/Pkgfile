@@ -1,0 +1,47 @@
+# Description: Tor is a anonymous network and proxy.
+# URL: https://www.torproject.org/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: libevent openssl zlib
+
+name=tor
+version=0.2.6.2-alpha
+release=1
+source=(https://dist.torproject.org/$name-$version.tar.gz
+	tor.rc tor.conf)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure Tor
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--sysconfdir=/etc \
+		--disable-dependency-tracking \
+		--disable-systemd \
+		--enable-asciidoc \
+		--with-tor-user=tor \
+		--with-tor-group=tor
+
+
+	# make Tor
+	make
+	make DESTDIR=$PKG install
+
+
+	# get rid of the doc document
+	rm -r $PKG/usr/share/doc
+
+
+	# create some more structure
+	install -d -o tor -g tor $PKG/var/lib/tor
+	install -d -o tor -g tor $PKG/var/log/tor
+
+
+	# deploy rc.d and torrc
+	install -D -m 744 $SRC/tor.rc $PKG/etc/rc.d/tor
+	install -D -m 644 $SRC/tor.conf $PKG/etc/tor/torrc
+}
