@@ -1,0 +1,31 @@
+# Description: LibreSSL is a version of the TLS/crypto stack forked from OpenSSL.
+# URL: http://www.libressl.org
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+
+name=libressl
+version=2.1.2
+release=1
+source=(http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/$name-$version.tar.gz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure libressl
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+
+	# make libressl
+	make
+	make DESTDIR=$PKG install
+
+
+	# libressl comes with a huge ammount of manual pages. However most
+	# of them are not needed and overkill. So in order to keep the build
+	# small i am going to remove them.
+	rm -r $PKG/usr/man
+}
