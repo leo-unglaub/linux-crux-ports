@@ -1,0 +1,95 @@
+# Description: PHP is a popular general-purpose scripting language that is especially suited to web development.
+# URL: https://php.net/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on:
+
+name=php
+version=5.6.4
+release=1
+source=(https://www.php.net/distributions/php-$version.tar.bz2)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure php and customize the build
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--without-aolserver \
+		--without-caudium \
+		--without-continuity \
+		--without-fpm-systemd \
+		--without-isapi \
+		--without-litespeed \
+		--without-milter \
+		--without-nsapi \
+		--without-phttpd \
+		--without-pi3web \
+		--without-roxen \
+		--without-thttpd \
+		--without-tux \
+		--without-webjames \
+		--without-sqlite3 \
+		--without-pdo-sqlite \
+		--without-pear \
+		--without-kerberos \
+		--without-qdbm \
+		--without-gdbm \
+		--without-ndbm \
+		--without-db4 \
+		--without-db3 \
+		--without-db2 \
+		--without-db1 \
+		--without-dbm \
+		--without-tcadb \
+		--without-cdb \
+		--without-mssql \
+		--without-snmp \
+		--with-config-file-path=/etc/php \
+		--with-config-file-scan-dir=/etc/php/conf.d \
+		--with-fpm-user=www \
+		--with-fpm-group=www \
+		--with-zlib \
+		--with-pcre-regex=/usr \
+		--with-curl=/usr \
+		--with-readline \
+		--enable-fpm \
+		--enable-cli \
+		--enable-phpdbg \
+		--enable-short-tags \
+		--enable-opcache \
+		--enable-cgi \
+		--disable-gcov \
+		--disable-debug \
+		--disable-static \
+		--disable-inifile \
+		--disable-flatfile \
+		--disable-ftp \
+		--disable-gd \
+		--disable-simplexml \
+		--disable-tokenizer \
+		--disable-xmlwriter \
+		--disable-xmlreader
+
+
+
+	# make php and install it
+	make
+	make INSTALL_ROOT=$PKG install
+
+
+	# fix a broken symlink
+	ln -sfr $PKG/usr/bin/phar.phar $PKG/usr/bin/phar
+
+
+	# remove all .a files from the extensions dir
+	find $PKG/usr/lib/php/extensions -name *.so -exec mv {} $PKG/usr/lib/php/extensions/ \;
+	rm -rf $PKG/usr/lib/php/extensions/no-debug-non-zts-20131226
+
+
+	# remove some empty directories
+	rm -r $PKG/usr/{var,php}
+}
