@@ -1,0 +1,34 @@
+# Description: PHP PECL - Property proxy.
+# URL: http://pecl.php.net/package/propro
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: php
+
+name=php-pecl-propro
+version=1.0.0
+release=1
+source=(http://pecl.php.net/get/propro-$version.tgz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/propro-$version
+
+
+	# phpize the source code
+	/usr/bin/phpize
+
+
+	# configure php-pecl-propro
+	./configure \
+		--prefix=/usr
+
+
+	# make php-pecl-propro
+	make
+	make INSTALL_ROOT=$PKG install
+
+
+	# cleanup the file structure
+	find $PKG/usr/lib/php/extensions -name *.so -exec mv {} $PKG/usr/lib/php/extensions/ \;
+	rm -rf $PKG/usr/lib/php/extensions/no-debug-non-zts-20131226
+}
