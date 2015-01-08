@@ -1,0 +1,34 @@
+# Description: PHP PECL - Resource and persistent handles factory.
+# URL: http://pecl.php.net/package/raphf
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: php
+
+name=php-pecl-raphf
+version=1.0.4
+release=1
+source=(http://pecl.php.net/get/raphf-$version.tgz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/raphf-$version
+
+
+	# phpize the source code
+	/usr/bin/phpize
+
+
+	# configure php-pecl-raphf
+	./configure \
+		--prefix=/usr
+
+
+	# make php-pecl-raphf
+	make
+	make INSTALL_ROOT=$PKG install
+
+
+	# cleanup the file structure
+	find $PKG/usr/lib/php/extensions -name *.so -exec mv {} $PKG/usr/lib/php/extensions/ \;
+	rm -rf $PKG/usr/lib/php/extensions/no-debug-non-zts-20131226
+}
