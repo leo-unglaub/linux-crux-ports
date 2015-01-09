@@ -1,0 +1,30 @@
+# Description: The MariaDB Native Client library (C driver) is used to connect applications developed in C/C++ to MariaDB and MySQL databases.
+# URL: https://downloads.mariadb.org/client-native/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: cmake
+
+name=mariadb-client
+version=2.0.0
+release=1
+source=(https://downloads.mariadb.org/f/client-native-$version/src/mariadb_client-$version-src.tar.gz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/mariadb_client-$version-src/cmake
+
+
+	# use cmake to prepare the build environment
+	cmake .. \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr
+
+
+	# make mariadb-client and install it
+	make
+	make install DESTDIR=$PKG
+
+
+	# cleanup the build
+	rm $PKG/usr/include/mariadb/{CMakeLists.txt,Makefile.am}
+}
