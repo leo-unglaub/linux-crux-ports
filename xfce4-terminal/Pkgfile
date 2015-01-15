@@ -1,0 +1,36 @@
+# Description: A terminal emulator for the Xfce4 Desktop
+# URL: http://docs.xfce.org/apps/terminal/start
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: exo vte dbus-glib
+# Group: xfce4-next
+
+name=xfce4-terminal
+version=0.6.3
+release=1
+source=(http://archive.xfce.org/src/apps/$name/${version%.*}/$name-$version.tar.bz2)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# configure the xfce4-terminal
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/bin \
+		--disable-static \
+		--disable-debug 
+
+
+	# make xfce4-terminal
+	make
+	make DESTDIR=$PKG install
+
+
+	# lets cleanup the 
+	rm -rf $PKG/usr/share/locale
+	rm -rf $PKG/usr/share/gnome-control-center
+	rm -rf $PKG/usr/man/{??,??_??}
+}
