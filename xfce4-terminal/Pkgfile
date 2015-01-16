@@ -29,7 +29,7 @@ build ()
 	make DESTDIR=$PKG install
 
 
-	# lets cleanup the 
+	# lets cleanup
 	rm -rf $PKG/usr/share/locale
 	rm -rf $PKG/usr/share/gnome-control-center
 	rm -rf $PKG/usr/man/{??,??_??}
