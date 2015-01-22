@@ -6,7 +6,7 @@
 
 name=hiawatha
 version=9.11
-release=1
+release=2
 source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz
 	hiawatha hiawatha.conf main.conf ban.conf 000-default.conf bindings.conf
 	handler.conf)
