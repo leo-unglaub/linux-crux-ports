@@ -62,6 +62,7 @@ build ()
 		--enable-short-tags \
 		--enable-opcache \
 		--enable-cgi \
+		--enable-mbstring \
 		--disable-gcov \
 		--disable-debug \
 		--disable-static \
