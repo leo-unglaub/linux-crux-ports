@@ -1,0 +1,48 @@
+# Description: mbedtls - mbed TLS (formerly known as PolarSSL)
+# URL: https://tls.mbed.org/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: cmake
+
+name=mbedtls
+version=1.3.10
+release=1
+source=(https://tls.mbed.org/download/$name-$version-gpl.tgz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+
+	# customize the polarssl build
+	configScript="$SRC/$name-$version/scripts/config.pl -f $SRC/$name-$version/include/polarssl/config.h"
+	$configScript unset POLARSSL_DEBUG_C
+	$configScript unset POLARSSL_CIPHER_NULL_CIPHER
+	$configScript unset POLARSSL_ENABLE_WEAK_CIPHERSUITES
+	$configScript set POLARSSL_THREADING_C
+	$configScript set POLARSSL_THREADING_PTHREAD
+	$configScript set POLARSSL_REMOVE_ARC4_CIPHERSUITES
+
+
+	# it's optional, but i prefer to build in a seperate directory
+	mkdir build
+	cd build
+
+
+	# start building PolarSSL
+	cmake \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX:PATH=/usr \
+		..
+
+	make
+	make DESTDIR=$PKG install
+
+
+	# prefix all executables with "mbedtls_"
+	cd $PKG/usr/bin
+	for exe in *;
+	do
+		mv $exe "${name}_${exe}";
+	done
+}
