@@ -1,0 +1,50 @@
+# Description: HexChat is an IRC client based on XChat
+# URL: https://hexchat.github.io/
+# Maintainer: Leo Unglaub, leo at leo-unglaub dot net
+# Depends on: libnotify pciutils xorg-libxdamage xz
+
+# Difference to the version in "opt"
+#
+# This build of hexchat removes a lot of useless crap and makes it much
+# faster. For example all Perl, Python, ... plugins are gone.
+
+name=hexchat
+version=2.10.2
+release=1
+source=(https://dl.$name.net/hexchat/$name-$version.tar.xz)
+
+build ()
+{
+	# go into the source directory
+	cd $SRC/$name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-socks \
+		--disable-dependency-tracking \
+		--disable-nls \
+		--disable-textfe \
+		--disable-python \
+		--disable-perl \
+		--disable-perl_old \
+		--disable-doat \
+		--disable-fishlim \
+		--disable-sysinfo \
+		--disable-dbus \
+		--disable-libcanberra \
+		--disable-glibtest \
+		--disable-gtktest \
+		--disable-isocodes \
+		--without-theme-manager \
+
+
+	# make Hexchat
+	make
+	make DESTDIR=$PKG install
+
+
+	# remove the locales because --disable-nls is not working
+	# https://github.com/hexchat/hexchat/issues/1300
+	rm -r $PKG/usr/share/locale
+}
