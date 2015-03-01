@@ -4,7 +4,7 @@
 # Depends on: libevent openssl zlib
 
 name=tor
-version=0.2.6.2-alpha
+version=0.2.6.3-alpha
 release=1
 source=(https://dist.torproject.org/$name-$version.tar.gz
 	tor.rc tor.conf)
