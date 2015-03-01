@@ -2,11 +2,11 @@
 # URL: https://www.hiawatha-webserver.org
 # Maintainer: Leo Unglaub, leo at leo-unglaub dot net
 # Developer: Hugo Leisink, hugo at hiawatha-webserver dot org
-# Depends on: cmake polarssl
+# Depends on: cmake mbedtls
 
 name=hiawatha
-version=9.11
-release=2
+version=9.12
+release=1
 source=(https://www.hiawatha-webserver.org/files/hiawatha-$version.tar.gz
 	hiawatha hiawatha.conf main.conf ban.conf 000-default.conf bindings.conf
 	handler.conf)
@@ -32,7 +32,7 @@ build ()
 		-DENABLE_TOMAHAWK=on \
 		-DENABLE_TOOLKIT=on \
 		-DENABLE_XSLT=on \
-		-DUSE_SYSTEM_POLARSSL=on \
+		-DUSE_SYSTEM_MBEDTLS=on \
 		-DCMAKE_INSTALL_PREFIX="" \
 		-DCMAKE_INSTALL_BINDIR=/usr/bin \
 		-DCMAKE_INSTALL_SBINDIR=/usr/sbin \
