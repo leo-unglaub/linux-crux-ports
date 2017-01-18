@@ -1,3 +1,4 @@
+# Don't use tabs in this file
 image: leounglaub/alpine:contao-extensions
 
 pipelines:
