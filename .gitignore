@@ -1,8 +1,5 @@
-# dont track the source packages
 *.bz2
 *.gz
 *.xz
 *.tgz
-
-# don't track CRUX packages as well
 *#*
