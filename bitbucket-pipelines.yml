@@ -1,9 +1,0 @@
-# Don't use tabs in this file
-image: leounglaub/alpine:contao-extensions
-
-pipelines:
-  default:
-    - step:
-        script:
-          - lu_add_ssh_key_github
-          - lu_mirror_repo linux-crux-ports
